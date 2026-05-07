@@ -13,7 +13,8 @@
             font-family: "Times New Roman", Times, serif; 
         }
 
-        body {
+         body {
+            /* Using your background image logic */
             background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('CSTA.jpg');
             background-position: center;
             background-size: cover;
@@ -23,101 +24,101 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            overflow-x: hidden;
-        } /* FIXED: Closing brace added here */
+            overflow-x: hidden; /* Prevents horizontal scrolling */
 
         header {
-            background-color: maroon;
-            padding: 20px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 4px solid white;
+            /* Changed to Maroon */
+      background-color: maroon;
+ padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allows menu to wrap if it's too long */
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+nav a {
+    margin: 5px;
+    font-size: clamp(14px, 4vw, 20px); /* Scales font based on screen width */
+}
+
+        nav a:hover {
+            color: #ffb6c1; 
+            text-decoration: underline;
         }
 
-        header h1 a {
-            text-decoration: none;
-            color: white;
-            font-size: 32px;
-            font-weight: bold;
-        }
+    /* Replace the .hero and .hero-image styles in index.html */
+.hero {
+    flex: 1;
+    display: flex;
+    flex-direction: row; /* Side by side on laptop */
+    align-items: center;
+    justify-content: center;
+    padding: 20px 5%;
+    gap: 20px;
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 20px;
-            font-size: 20px;
-            font-weight: bold;
-        }
+.hero-text h2 { 
+    font-size: clamp(32px, 8vw, 75px); /* Responsive font size */
+    border-bottom: 8px solid white;
+}
 
-        /* --- HALF SCREEN ON LAPTOP --- */
-        .hero {
-            flex: 1;
-            display: flex;
-            align-items: center; 
-            justify-content: space-around;
-            padding: 0 10%;
-        }
+.hero-image {
+    max-width: 500px;
+    width: 100%;
+}
 
-        .hero-text h2 { 
-            font-size: 60px; 
-            line-height: 1.1;
-            border-bottom: 10px solid white; 
-            display: inline-block;
-            margin-bottom: 20px;
-        }
+.hero-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
 
-        .hero-image {
-            height: 50vh; /* Half of the screen height for laptop */
-            display: flex;
-            align-items: center;
-        }
-
-        .hero-image img {
-            height: 100%; 
-            width: auto;
-            filter: drop-shadow(15px 15px 25px rgba(0,0,0,0.6)); 
-        }
-
-        /* --- FULL SCREEN ON PHONE --- */
-        @media (max-width: 900px) {
-            .hero {
-                flex-direction: column;
-                text-align: center;
-                padding: 40px 0 0 0; /* No side padding to let image go full width */
-                justify-content: flex-start;
-            }
-
-            .hero-text {
-                padding: 0 20px 30px 20px;
-            }
-
-            .hero-text h2 {
-                font-size: 45px;
-            }
-
-            .hero-image {
-                height: auto; 
-                width: 100%; /* Container takes full screen width */
-                display: flex;
-                justify-content: center;
-                margin-top: auto;
-            }
-
-            .hero-image img {
-                width: 100%; /* Photo fills the entire phone width */
-                height: auto;
-                max-width: none;
-            }
-        }
+/* Mobile Fix */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column; /* Stack vertically on phone */
+        text-align: center;
+    }
+    .hero-text {
+        padding-bottom: 20px;
+    }
+}
 
         footer {
             padding: 20px;
             border-top: 4px solid white; 
             text-align: center;
+            font-weight: bold;
             background: maroon; 
             color: white;
+            position: relative;
             z-index: 10;
+        }
+
+        /* Responsive Fix for Mobile */
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding-top: 40px;
+            }
+            .hero-text {
+                padding-bottom: 20px;
+            }
+            .hero-text h2 {
+                font-size: 50px;
+            }
+            .hero-image {
+                height: 60vh;
+            }
         }
     </style>
 </head>
@@ -135,7 +136,7 @@
     </header>
 
     <section class="hero">
-        <div class="hero-text">
+          <div class="hero-text">
             <h3>Hello! I'm</h3>
             <h2>𝓒𝓪𝓰𝓾𝓲𝓷𝓭𝓪𝓰𝓪𝓷.<br>,𝓜𝓪𝓻𝔂 𝓙𝓲𝓷𝓮 𝓛❤️</h2>
             <p>IT Student at CSTA.</p>
