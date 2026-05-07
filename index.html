@@ -14,7 +14,6 @@
         }
 
         body {
-            /* Using a linear gradient overlay for readability */
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('CSTA.jpg');
             background-position: center;
             background-size: cover;
@@ -53,25 +52,23 @@
             transition: 0.3s;
         }
 
-        nav a:hover {
-            color: #ffcccb; /* Light pink hover effect */
-        }
+        nav a:hover { color: #ffcccb; }
 
         /* --- HERO SECTION --- */
         .hero {
-            flex: 1; /* Pushes footer to the bottom */
+            flex: 1;
             display: flex;
             flex-direction: row; 
             align-items: center;
-            justify-content: center;
-            padding: 20px 10%;
-            gap: 50px;
+            justify-content: space-between;
+            padding: 0 5% 0 10%; /* More room on the left for text */
+            gap: 20px;
             width: 100%;
         }
 
         .hero-text {
             flex: 1;
-            max-width: 600px;
+            max-width: 500px; /* Limits text width to give image more room */
         }
 
         .hero-text h3 {
@@ -80,7 +77,7 @@
         }
 
         .hero-text h2 { 
-            font-size: clamp(35px, 6vw, 70px); /* Better scaling */
+            font-size: clamp(35px, 5.5vw, 65px);
             font-weight: bold;
             line-height: 1.2;
             border-bottom: 8px solid white; 
@@ -95,58 +92,56 @@
             opacity: 0.9;
         }
 
+        /* --- IMAGE CONTAINER --- */
         .hero-image {
-            flex: 1;
+            flex: 1.3; /* This makes the image container wider than the text */
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-end; /* Aligns photo to bottom of the section */
+            height: 100%;
         }
 
         .hero-image img {
-            max-width: 450px; /* Limits size on large laptops */
-            width: 100%;
-            height: auto;
+            height: 80vh; /* Makes the photo fill 80% of the screen height */
+            width: auto;  /* Maintains aspect ratio */
+            max-width: 100%; 
             object-fit: contain;
-            /* Filter makes your PNG pop against the dark background */
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.8));
+            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.9));
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.02); /* Subtle pop on hover */
         }
 
         /* --- MOBILE FIX --- */
         @media (max-width: 900px) {
             header {
                 flex-direction: column;
-                text-align: center;
-                gap: 10px;
+                padding: 15px;
             }
 
-            nav {
-                margin-top: 10px;
-            }
-
-            nav a {
-                margin: 0 10px;
-                font-size: 16px;
-            }
+            nav { margin-top: 10px; }
+            nav a { margin: 0 10px; font-size: 16px; }
 
             .hero {
-                flex-direction: column; /* Stack image and text */
+                flex-direction: column; 
                 text-align: center;
-                padding: 50px 20px;
+                padding: 40px 20px;
                 justify-content: center;
             }
 
-            .hero-text {
-                order: 2; /* Text moves below image on mobile */
-            }
+            .hero-text { order: 2; }
 
             .hero-image {
-                order: 1; /* Image moves to top on mobile */
-                max-width: 80%;
-                margin-bottom: 30px;
+                order: 1;
+                max-width: 100%;
+                margin-bottom: 20px;
+                align-items: center; /* Center image on mobile */
             }
 
             .hero-image img {
-                max-width: 300px; /* Slightly smaller on phones */
+                height: 45vh; /* Shorter for phone screens */
             }
         }
 
@@ -158,6 +153,8 @@
             color: white;
             font-weight: bold;
             font-size: 14px;
+            position: relative;
+            z-index: 5;
         }
     </style>
 </head>
@@ -181,7 +178,6 @@
             <p>IT Student at CSTA.</p>
         </div>
         <div class="hero-image">
-            <!-- Ensure maryjine.png is in the same folder -->
             <img src="maryjine.png" alt="Mary Jine">
         </div>
     </section>
@@ -192,3 +188,4 @@
 
 </body>
 </html>
+
