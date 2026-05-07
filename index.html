@@ -13,8 +13,7 @@
             font-family: "Times New Roman", Times, serif; 
         }
 
-         body {
-            /* Using your background image logic */
+        body {
             background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('CSTA.jpg');
             background-position: center;
             background-size: cover;
@@ -24,43 +23,37 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            overflow-x: hidden; /* Prevents horizontal scrolling */
+            overflow-x: hidden;
+        } /* FIXED: Added missing closing brace */
 
         header {
-            /* Changed to Maroon */
             background-color: maroon;
+            padding: 20px 5%;
             display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap; /* Allows menu to wrap if it's too long */
-}
-
-nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-}
-
-nav a {
-    margin: 5px;
-    font-size: clamp(14px, 4vw, 20px); /* Scales font based on screen width */
-}
-
-
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; 
+            border-bottom: 4px solid white;
+        }
 
         header h1 a {
             text-decoration: none;
             color: white;
-            font-size: 32px;
+            font-size: clamp(24px, 5vw, 32px);
             font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            margin-left: 25px;
-            font-size: 20px;
+            font-size: clamp(16px, 3vw, 20px);
             font-weight: bold;
             transition: 0.3s;
         }
@@ -70,43 +63,52 @@ nav a {
             text-decoration: underline;
         }
 
-        /* Replace the .hero and .hero-image styles in index.html */
-.hero {
-    flex: 1;
-    display: flex;
-    flex-direction: row; /* Side by side on laptop */
-    align-items: center;
-    justify-content: center;
-    padding: 20px 5%;
-    gap: 20px;
-}
+        .hero {
+            flex: 1;
+            display: flex;
+            flex-direction: row; 
+            align-items: center;
+            justify-content: center;
+            padding: 40px 10%;
+            gap: 40px;
+        }
 
-.hero-text h2 { 
-    font-size: clamp(32px, 8vw, 75px); /* Responsive font size */
-    border-bottom: 8px solid white;
-}
+        .hero-text {
+            max-width: 600px;
+        }
 
-.hero-image {
-    max-width: 500px;
-    width: 100%;
-}
+        .hero-text h3 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
 
-.hero-image img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-}
+        .hero-text h2 { 
+            font-size: clamp(40px, 8vw, 75px);
+            line-height: 1.1;
+            border-bottom: 10px solid white;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
 
-/* Mobile Fix */
-@media (max-width: 768px) {
-    .hero {
-        flex-direction: column; /* Stack vertically on phone */
-        text-align: center;
-    }
-    .hero-text {
-        padding-bottom: 20px;
-    }
-}
+        .hero-text p {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .hero-image {
+            max-width: 500px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(15px 15px 30px rgba(0,0,0,0.6));
+        }
+
         footer {
             padding: 20px;
             border-top: 4px solid white; 
@@ -114,26 +116,27 @@ nav a {
             font-weight: bold;
             background: maroon; 
             color: white;
-            position: relative;
-            z-index: 10;
         }
 
-        /* Responsive Fix for Mobile */
-        @media (max-width: 900px) {
+        /* Responsive Fix for Mobile (Phone) */
+        @media (max-width: 768px) {
             .hero {
                 flex-direction: column;
-                align-items: center;
                 text-align: center;
-                padding-top: 40px;
+                padding: 40px 20px;
             }
+
             .hero-text {
-                padding-bottom: 20px;
+                order: 1;
             }
-            .hero-text h2 {
-                font-size: 50px;
-            }
+
             .hero-image {
-                height: 60vh;
+                order: 2;
+                max-width: 100%; /* Allows picture to be BIG */
+            }
+
+            .hero-image img {
+                width: 85%; /* Big picture on phone */
             }
         }
     </style>
@@ -141,7 +144,7 @@ nav a {
 <body>
 
     <header>
-        <h1>MY COLLEGE DIARY</h1>
+        <h1><a href="index.html">MY COLLEGE DIARY</a></h1>
         <nav>
             <a href="index.html">Home</a> 
             <a href="about.html">About</a>
@@ -152,7 +155,7 @@ nav a {
     </header>
 
     <section class="hero">
-          <div class="hero-text">
+        <div class="hero-text">
             <h3>Hello! I'm</h3>
             <h2>𝓒𝓪𝓰𝓾𝓲𝓷𝓭𝓪𝓰𝓪𝓷.<br>,𝓜𝓪𝓻𝔂 𝓙𝓲𝓷𝓮 𝓛❤️</h2>
             <p>IT Student at CSTA.</p>
