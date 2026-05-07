@@ -5,30 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | My College Diary</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Times New Roman", Times, serif; }
+        /* Global Reset */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: "Times New Roman", Times, serif; 
+        }
 
-        body {
-            background-color: maroon; 
-            color: white; 
+         body {
+            /* Using your background image logic */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('CSTA.jpg');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: white;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            overflow-x: hidden;
-        }
+            overflow-x: hidden; /* Prevents horizontal scrolling */
 
         header {
+            /* Changed to Maroon */
+            background-color: maroon;
             padding: 20px 60px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 4px solid white; /* White Broadline */
+            /* White border to separate it from the maroon body */
+            border-bottom: 4px solid white; 
         }
 
-        header h1 { font-size: 32px; font-weight: bold; }
-        
+
+
         header h1 a {
             text-decoration: none;
             color: white;
+            font-size: 32px;
+            font-weight: bold;
         }
 
         nav a {
@@ -45,54 +60,59 @@
             text-decoration: underline;
         }
 
+        /* Hero Section - The "More Big" Layout */
         .hero {
             flex: 1;
             display: flex;
-            align-items: flex-end; 
+            align-items: flex-end; /* Grounds image to the bottom */
             justify-content: space-between;
-            padding: 0 10%;
+            padding: 0 5% 0 10%; /* Adjusted for a wider image area */
+            position: relative;
         }
 
         .hero-text {
             padding-bottom: 15vh;
             max-width: 600px;
+            z-index: 5;
         }
 
         .hero-text h3 {
-            font-size: 24px;
+            font-size: 28px;
             margin-bottom: 10px;
         }
 
         .hero-text h2 { 
-            font-size: 70px; 
+            font-size: 75px; /* Bigger name */
             font-weight: bold;
             line-height: 1.1;
-            border-bottom: 10px solid white; 
+            border-bottom: 12px solid white; 
             display: inline-block;
             margin-bottom: 20px;
-            color: white;
+            padding-bottom: 5px;
         }
 
         .hero-text p {
-            font-size: 22px;
+            font-size: 26px;
             font-weight: bold;
         }
 
+        /* Big Image Logic */
         .hero-image {
-            height: 90vh; 
+            height: 95vh; /* Massive height */
             display: flex;
             align-items: flex-end;
+            justify-content: flex-end;
         }
 
         .hero-image img {
-            height: 100%; 
+            height: 100%; /* Fills the 95vh container */
             width: auto;
             display: block;
-          
-            filter: drop-shadow(15px 15px 0px black); 
+            /* Strong shadow to make it pop against the maroon */
+            filter: drop-shadow(20px 0px 30px rgba(0,0,0,0.6)); 
             margin-bottom: -4px; 
             position: relative;
-            z-index: 5;
+            z-index: 2;
         }
 
         footer {
@@ -105,29 +125,54 @@
             position: relative;
             z-index: 10;
         }
+
+        /* Responsive Fix for Mobile */
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding-top: 40px;
+            }
+            .hero-text {
+                padding-bottom: 20px;
+            }
+            .hero-text h2 {
+                font-size: 50px;
+            }
+            .hero-image {
+                height: 60vh;
+            }
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <h1><a href="CSTA Campus Entrance.html">HOME</a></h1>
+        <h1><a href="index.html">HOME</a></h1>
         <nav>
             <a href="index.html">Home</a> 
             <a href="about.html">About</a>
             <a href="diary.html">Diary</a>
             <a href="gallery.html">Gallery</a>
             <a href="contact.html">Contact</a>
-             </nav>
+        </nav>
     </header>
 
     <section class="hero">
-        <div class="hero-text">
+          <div class="hero-text">
             <h3>Hello! I'm</h3>
             <h2>𝓒𝓪𝓰𝓾𝓲𝓷𝓭𝓪𝓰𝓪𝓷.<br>,𝓜𝓪𝓻𝔂 𝓙𝓲𝓷𝓮 𝓛❤️</h2>
             <p>IT Student at CSTA.</p>
         </div>
-
         <div class="hero-image">
             <img src="maryjine.png" alt="Mary Jine">
         </div>
     </section>
+
+    <footer>
+        <p>&copy; 2026 My College Diary ❤️</p>
+    </footer>
+
+</body>
+</html>
