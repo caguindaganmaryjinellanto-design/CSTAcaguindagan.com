@@ -83,12 +83,23 @@
             letter-spacing: 2px;
         }
 
-        .grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 40px; 
-            margin-bottom: 60px;
-        }
+        /* Update these styles in gallery.html */
+.grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+    gap: 20px; 
+    padding: 10px;
+}
+
+.modal-content {
+    width: 95%; /* Take up more space on mobile */
+    max-height: 80vh;
+}
+
+@media (max-width: 480px) {
+    .year-heading { font-size: 30px; }
+    .section-divider { font-size: 20px; }
+}
 
         .gallery-item { 
             background: white; 
