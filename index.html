@@ -14,7 +14,8 @@
         }
 
         body {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('CSTA.jpg');
+            /* Using a linear gradient overlay for readability */
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('CSTA.jpg');
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
@@ -24,23 +25,22 @@
             display: flex;
             flex-direction: column;
             overflow-x: hidden;
-        } /* FIXED: Added the missing closing brace here */
+        }
 
         header {
             background-color: maroon;
-            padding: 20px 5%;
+            padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 4px solid white;
-            flex-wrap: wrap;
-            gap: 15px;
+            z-index: 10;
         }
 
         header h1 a {
             text-decoration: none;
             color: white;
-            font-size: 32px;
+            font-size: 28px;
             font-weight: bold;
         }
 
@@ -48,84 +48,116 @@
             color: white;
             text-decoration: none;
             margin-left: 20px;
-            font-size: 20px;
+            font-size: 18px;
             font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffcccb; /* Light pink hover effect */
         }
 
         /* --- HERO SECTION --- */
         .hero {
-            flex: 1;
+            flex: 1; /* Pushes footer to the bottom */
             display: flex;
-            flex-direction: row; /* Side-by-side on laptop */
+            flex-direction: row; 
             align-items: center;
             justify-content: center;
-            padding: 40px 10%;
-            gap: 40px;
+            padding: 20px 10%;
+            gap: 50px;
+            width: 100%;
         }
 
         .hero-text {
+            flex: 1;
             max-width: 600px;
         }
 
         .hero-text h3 {
             font-size: 28px;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
 
         .hero-text h2 { 
-            font-size: clamp(40px, 8vw, 75px); /* Scales between mobile and laptop */
+            font-size: clamp(35px, 6vw, 70px); /* Better scaling */
             font-weight: bold;
-            line-height: 1.1;
-            border-bottom: 10px solid white; 
+            line-height: 1.2;
+            border-bottom: 8px solid white; 
             display: inline-block;
             margin-bottom: 20px;
-            padding-bottom: 5px;
+            padding-bottom: 10px;
         }
 
         .hero-text p {
-            font-size: 26px;
+            font-size: 24px;
             font-weight: bold;
+            opacity: 0.9;
         }
 
         .hero-image {
-            max-width: 110vh; /* Controls size on laptop */
-            width: 100%;
+            flex: 1;
             display: flex;
             justify-content: center;
+            align-items: center;
         }
 
         .hero-image img {
+            max-width: 450px; /* Limits size on large laptops */
             width: 100%;
             height: auto;
             object-fit: contain;
-            filter: drop-shadow(15px 15px 25px rgba(0,0,0,0.6));
+            /* Filter makes your PNG pop against the dark background */
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.8));
         }
 
         /* --- MOBILE FIX --- */
         @media (max-width: 900px) {
-            .hero {
-                flex-direction: column; /* Stacks vertically on phone */
+            header {
+                flex-direction: column;
                 text-align: center;
-                padding: 40px 20px;
+                gap: 10px;
+            }
+
+            nav {
+                margin-top: 10px;
+            }
+
+            nav a {
+                margin: 0 10px;
+                font-size: 16px;
+            }
+
+            .hero {
+                flex-direction: column; /* Stack image and text */
+                text-align: center;
+                padding: 50px 20px;
                 justify-content: center;
             }
 
             .hero-text {
-                padding-bottom: 30px;
+                order: 2; /* Text moves below image on mobile */
             }
 
             .hero-image {
-                max-width: 100%; /* Keeps the image large but contained on phone */
+                order: 1; /* Image moves to top on mobile */
+                max-width: 80%;
+                margin-bottom: 30px;
+            }
+
+            .hero-image img {
+                max-width: 300px; /* Slightly smaller on phones */
             }
         }
 
         footer {
-            padding: 20px;
+            padding: 15px;
             border-top: 4px solid white; 
             text-align: center;
             background: maroon; 
             color: white;
             font-weight: bold;
+            font-size: 14px;
         }
     </style>
 </head>
@@ -149,6 +181,7 @@
             <p>IT Student at CSTA.</p>
         </div>
         <div class="hero-image">
+            <!-- Ensure maryjine.png is in the same folder -->
             <img src="maryjine.png" alt="Mary Jine">
         </div>
     </section>
