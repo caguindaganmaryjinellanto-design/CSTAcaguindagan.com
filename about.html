@@ -13,12 +13,18 @@
             font-family: "Times New Roman", Times, serif;
         }
 
-        body {
-            background-color: maroon;
-            color: white; 
+         body {
+            /* Using your background image logic */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('about.jpg');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: white;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            overflow-x: hidden; /* Prevents horizontal scrolling */
         }
 
         header {
