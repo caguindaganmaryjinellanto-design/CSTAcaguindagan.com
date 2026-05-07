@@ -60,61 +60,58 @@
             display: flex;
             flex-direction: row; 
             align-items: center;
-            justify-content: space-between;
-            padding: 0 5% 0 10%; /* More room on the left for text */
+            justify-content: center;
+            padding: 0 5%;
             gap: 20px;
             width: 100%;
+            height: calc(100vh - 70px); /* Forces section to fill screen height */
         }
 
         .hero-text {
             flex: 1;
-            max-width: 500px; /* Limits text width to give image more room */
+            max-width: 550px;
+            z-index: 2;
         }
 
         .hero-text h3 {
-            font-size: 28px;
+            font-size: clamp(20px, 3vw, 30px);
             margin-bottom: 5px;
         }
 
         .hero-text h2 { 
-            font-size: clamp(35px, 5.5vw, 65px);
+            font-size: clamp(40px, 6vw, 80px); /* Massive text for big screens */
             font-weight: bold;
-            line-height: 1.2;
-            border-bottom: 8px solid white; 
+            line-height: 1.1;
+            border-bottom: 10px solid white; 
             display: inline-block;
             margin-bottom: 20px;
             padding-bottom: 10px;
         }
 
         .hero-text p {
-            font-size: 24px;
+            font-size: clamp(18px, 2vw, 26px);
             font-weight: bold;
-            opacity: 0.9;
         }
 
-        /* --- IMAGE CONTAINER --- */
+        /* --- IMAGE CONTAINER (BIGGER) --- */
         .hero-image {
-            flex: 1.3; /* This makes the image container wider than the text */
+            flex: 1.5; /* Gives image more room than text */
             display: flex;
             justify-content: center;
-            align-items: flex-end; /* Aligns photo to bottom of the section */
+            align-items: flex-end; /* Sits photo on the footer */
             height: 100%;
         }
 
         .hero-image img {
-            height: 80vh; /* Makes the photo fill 80% of the screen height */
-            width: auto;  /* Maintains aspect ratio */
+            height: 95vh; /* HUGE on Laptop - 95% of screen height */
+            width: auto;
             max-width: 100%; 
             object-fit: contain;
-            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.9));
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.9));
             transition: transform 0.3s ease;
         }
 
-        .hero-image img:hover {
-            transform: scale(1.02); /* Subtle pop on hover */
-        }
-
-        /* --- MOBILE FIX --- */
+        /* --- MOBILE FIX (BIGGER) --- */
         @media (max-width: 900px) {
             header {
                 flex-direction: column;
@@ -122,26 +119,33 @@
             }
 
             nav { margin-top: 10px; }
-            nav a { margin: 0 10px; font-size: 16px; }
+            nav a { margin: 0 8px; font-size: 15px; }
 
             .hero {
                 flex-direction: column; 
                 text-align: center;
-                padding: 40px 20px;
-                justify-content: center;
+                padding: 20px;
+                justify-content: flex-start; /* Start from top */
+                height: auto;
             }
 
-            .hero-text { order: 2; }
+            .hero-text { 
+                order: 2; 
+                margin-top: -50px; /* Overlaps image slightly for a cool look */
+                padding-bottom: 40px;
+            }
 
             .hero-image {
                 order: 1;
-                max-width: 100%;
+                width: 100%;
+                height: auto;
                 margin-bottom: 20px;
-                align-items: center; /* Center image on mobile */
             }
 
             .hero-image img {
-                height: 45vh; /* Shorter for phone screens */
+                height: 70vh; /* HUGE on Mobile - 70% of screen height */
+                width: auto;
+                max-height: 500px; /* Prevents it from being too tall on long phones */
             }
         }
 
@@ -152,7 +156,6 @@
             background: maroon; 
             color: white;
             font-weight: bold;
-            font-size: 14px;
             position: relative;
             z-index: 5;
         }
@@ -188,4 +191,3 @@
 
 </body>
 </html>
-
