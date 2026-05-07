@@ -24,7 +24,7 @@
             display: flex;
             flex-direction: column;
             overflow-x: hidden;
-        }
+        } /* FIXED: Added missing closing brace here */
 
         header {
             background-color: maroon;
@@ -32,174 +32,110 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap; 
             border-bottom: 4px solid white;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            flex-wrap: wrap; 
         }
 
         header h1 a {
             text-decoration: none;
             color: white;
-            font-size: clamp(24px, 5vw, 32px);
+            font-size: 32px;
             font-weight: bold;
-        }
-
-        nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            font-size: clamp(16px, 3vw, 20px);
+            margin-left: 20px;
+            font-size: 20px;
             font-weight: bold;
-            transition: all 0.3s ease;
-            padding: 8px 16px;
-            border-radius: 25px;
         }
 
-        nav a:hover {
-            color: #ffb6c1; 
-            background: rgba(255, 255, 255, 0.1);
-            text-decoration: none;
-        }
-
-        /* 🎨 ENHANCED HERO - BIG PICTURE EVERYWHERE */
+        /* --- HERO SECTION: LAPTOP --- */
         .hero {
             flex: 1;
             display: flex;
-            flex-direction: row; 
-            align-items: center;
-            justify-content: center;
-            padding: 60px 5%;
-            gap: 60px;
-            min-height: 80vh;
+            align-items: flex-end; 
+            justify-content: space-between;
+            padding: 0 5% 0 10%;
+            position: relative;
         }
 
         .hero-text {
-            max-width: 550px;
-            flex: 1;
-        }
-
-        .hero-text h3 {
-            font-size: clamp(20px, 4vw, 28px);
-            margin-bottom: 15px;
-            opacity: 0.9;
+            padding-bottom: 15vh;
+            max-width: 600px;
+            z-index: 5;
         }
 
         .hero-text h2 { 
-            font-size: clamp(42px, 8vw, 80px);
+            font-size: 75px; 
             line-height: 1.1;
-            border-bottom: 12px solid white;
+            border-bottom: 12px solid white; 
             display: inline-block;
-            margin-bottom: 25px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 20px;
         }
 
-        .hero-text p {
-            font-size: clamp(20px, 4vw, 26px);
-            font-weight: bold;
-            opacity: 0.95;
-            margin-bottom: 30px;
-        }
-
-        /* 🚀 BIG PICTURE - LAPTOP */
         .hero-image {
-            flex: 1;
-            max-width: 650px; /* Slightly bigger */
+            height: 95vh; /* Massive height for Laptop */
             display: flex;
-            justify-content: center;
-            align-items: center;
+            align-items: flex-end;
         }
 
         .hero-image img {
-            width: 100%;
-            height: auto;
-            max-height: 600px;
-            object-fit: contain;
-            filter: drop-shadow(20px 20px 40px rgba(0,0,0,0.7));
-            transition: transform 0.3s ease;
+            height: 100%; /* Forces image to be tall on Laptop */
+            width: auto;
+            filter: drop-shadow(20px 0px 30px rgba(0,0,0,0.6)); 
+            display: block;
         }
 
-        .hero-image img:hover {
-            transform: scale(1.05);
-        }
-
-        footer {
-            padding: 25px;
-            border-top: 4px solid white; 
-            text-align: center;
-            font-weight: bold;
-            background: linear-gradient(135deg, maroon, #8B0000);
-            color: white;
-            margin-top: auto;
-        }
-
-        /* 📱 MOBILE - ULTRA BIG PICTURE */
-        @media (max-width: 768px) {
+        /* --- HERO SECTION: PHONE --- */
+        @media (max-width: 900px) {
             .hero {
                 flex-direction: column;
-                padding: 40px 20px;
-                gap: 40px;
+                align-items: center;
                 text-align: center;
+                padding: 40px 10px 0 10px;
+                justify-content: flex-start;
             }
 
             .hero-text {
+                padding-bottom: 20px;
                 order: 1;
-                width: 100%;
+            }
+
+            .hero-text h2 {
+                font-size: 50px;
             }
 
             .hero-image {
                 order: 2;
-                width: 100vw; /* FULL screen width */
-                margin-left: -20px;
-                margin-right: -20px;
-                max-width: calc(100vw - 40px);
+                height: auto; /* FIXED: Removed 60vh limit for Phone */
+                width: 100%;
+                display: flex;
+                justify-content: center;
             }
 
             .hero-image img {
-                width: 100% !important;
+                width: 95%; /* Image now fills the phone width */
                 height: auto;
-                max-height: 65vh;
-                filter: drop-shadow(10px 10px 30px rgba(0,0,0,0.8));
+                max-width: 450px;
             }
         }
 
-        /* 🖥️ TABLET */
-        @media (max-width: 1024px) and (min-width: 769px) {
-            .hero {
-                padding: 50px 8%;
-                gap: 40px;
-            }
-            
-            .hero-image {
-                max-width: 500px;
-            }
-        }
-
-        /* ✨ LOADING ANIMATION */
-        .hero-image img {
-            opacity: 0;
-            animation: fadeInUp 1s ease forwards;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        footer {
+            padding: 20px;
+            border-top: 4px solid white; 
+            text-align: center;
+            background: maroon; 
+            color: white;
+            z-index: 10;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1><a href="index.html">MY COLLEGE DIARY</a></h1>
+        <h1><a href="index.html">HOME</a></h1>
         <nav>
             <a href="index.html">Home</a> 
             <a href="about.html">About</a>
@@ -212,16 +148,16 @@
     <section class="hero">
         <div class="hero-text">
             <h3>Hello! I'm</h3>
-            <h2>𝓒𝓪𝓰𝓾𝓲𝓷𝓭𝓪𝓰𝓪𝓷.<br>, 𝓜𝓪𝓻𝔂 𝓙𝓲𝓷𝓮 𝓛❤️</h2>
+            <h2>𝓒𝓪𝓰𝓾𝓲𝓷𝓭𝓪𝓰𝓪𝓷.<br>,𝓜𝓪𝓻𝔂 𝓙𝓲𝓷𝓮 𝓛❤️</h2>
             <p>IT Student at CSTA.</p>
         </div>
         <div class="hero-image">
-            <img src="maryjine.png" alt="Mary Jine L. Acaguindagan" loading="lazy">
+            <img src="maryjine.png" alt="Mary Jine">
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 My College Diary ❤️ | CSTA IT Student</p>
+        <p>&copy; 2026 My College Diary ❤️</p>
     </footer>
 
 </body>
