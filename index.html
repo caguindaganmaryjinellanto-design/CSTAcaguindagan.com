@@ -34,6 +34,9 @@
             align-items: center;
             flex-wrap: wrap; 
             border-bottom: 4px solid white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         header h1 a {
@@ -55,77 +58,95 @@
             text-decoration: none;
             font-size: clamp(16px, 3vw, 20px);
             font-weight: bold;
-            transition: 0.3s;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 25px;
         }
 
         nav a:hover {
             color: #ffb6c1; 
-            text-decoration: underline;
+            background: rgba(255, 255, 255, 0.1);
+            text-decoration: none;
         }
 
-        /* LAPTOP STYLE: Same size as before */
+        /* 🎨 ENHANCED HERO - BIG PICTURE EVERYWHERE */
         .hero {
             flex: 1;
             display: flex;
             flex-direction: row; 
             align-items: center;
             justify-content: center;
-            padding: 40px 10%;
-            gap: 40px;
+            padding: 60px 5%;
+            gap: 60px;
+            min-height: 80vh;
         }
 
         .hero-text {
-            max-width: 600px;
+            max-width: 550px;
+            flex: 1;
         }
 
         .hero-text h3 {
-            font-size: 28px;
-            margin-bottom: 10px;
+            font-size: clamp(20px, 4vw, 28px);
+            margin-bottom: 15px;
+            opacity: 0.9;
         }
 
         .hero-text h2 { 
-            font-size: clamp(40px, 8vw, 75px);
+            font-size: clamp(42px, 8vw, 80px);
             line-height: 1.1;
-            border-bottom: 10px solid white;
+            border-bottom: 12px solid white;
             display: inline-block;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         .hero-text p {
-            font-size: 24px;
+            font-size: clamp(20px, 4vw, 26px);
             font-weight: bold;
+            opacity: 0.95;
+            margin-bottom: 30px;
         }
 
+        /* 🚀 BIG PICTURE - LAPTOP */
         .hero-image {
-            max-width: 800px; /* LAPTOP: Same size - 800px max */
-            width: 100%;
+            flex: 1;
+            max-width: 650px; /* Slightly bigger */
             display: flex;
             justify-content: center;
+            align-items: center;
         }
 
         .hero-image img {
             width: 100%;
             height: auto;
+            max-height: 600px;
             object-fit: contain;
-            filter: drop-shadow(15px 15px 30px rgba(0,0,0,0.6));
+            filter: drop-shadow(20px 20px 40px rgba(0,0,0,0.7));
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.05);
         }
 
         footer {
-            padding: 20px;
+            padding: 25px;
             border-top: 4px solid white; 
             text-align: center;
             font-weight: bold;
-            background: maroon; 
+            background: linear-gradient(135deg, maroon, #8B0000);
             color: white;
+            margin-top: auto;
         }
 
-        /* PHONE STYLE: BIG PICTURE - Takes FULL screen width! */
+        /* 📱 MOBILE - ULTRA BIG PICTURE */
         @media (max-width: 768px) {
             .hero {
                 flex-direction: column;
+                padding: 40px 20px;
+                gap: 40px;
                 text-align: center;
-                padding: 20px 5px; 
-                gap: 20px;
             }
 
             .hero-text {
@@ -135,18 +156,42 @@
 
             .hero-image {
                 order: 2;
-                max-width: 100%; 
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                margin-top: 10px;
+                width: 100vw; /* FULL screen width */
+                margin-left: -20px;
+                margin-right: -20px;
+                max-width: calc(100vw - 40px);
             }
 
             .hero-image img {
-                width: 100% !important; /* BIG PICTURE: Full phone width */
-                max-width: 100%; 
+                width: 100% !important;
                 height: auto;
-                max-height: 70vh; /* Prevents it from being too tall */
+                max-height: 65vh;
+                filter: drop-shadow(10px 10px 30px rgba(0,0,0,0.8));
+            }
+        }
+
+        /* 🖥️ TABLET */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .hero {
+                padding: 50px 8%;
+                gap: 40px;
+            }
+            
+            .hero-image {
+                max-width: 500px;
+            }
+        }
+
+        /* ✨ LOADING ANIMATION */
+        .hero-image img {
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
     </style>
@@ -171,14 +216,13 @@
             <p>IT Student at CSTA.</p>
         </div>
         <div class="hero-image">
-            <img src="maryjine.png" alt="Mary Jine"> <!-- ✅ FIXED: maryjine.jpg -->
+            <img src="maryjine.png" alt="Mary Jine L. Acaguindagan" loading="lazy">
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 My College Diary ❤️</p>
+        <p>&copy; 2026 My College Diary ❤️ | CSTA IT Student</p>
     </footer>
 
 </body>
 </html>
-
