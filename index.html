@@ -14,7 +14,7 @@
         }
 
         body {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('CSTA.jpg');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('CSTA.jpg');
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
@@ -24,22 +24,23 @@
             display: flex;
             flex-direction: column;
             overflow-x: hidden;
-        }
+        } /* FIXED: Added the missing closing brace here */
 
         header {
             background-color: maroon;
-            padding: 15px 5%;
+            padding: 20px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 4px solid white;
-            z-index: 10;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
         header h1 a {
             text-decoration: none;
             color: white;
-            font-size: 28px;
+            font-size: 32px;
             font-weight: bold;
         }
 
@@ -47,117 +48,84 @@
             color: white;
             text-decoration: none;
             margin-left: 20px;
-            font-size: 18px;
+            font-size: 20px;
             font-weight: bold;
-            transition: 0.3s;
         }
-
-        nav a:hover { color: #ffcccb; }
 
         /* --- HERO SECTION --- */
         .hero {
             flex: 1;
             display: flex;
-            flex-direction: row; 
+            flex-direction: row; /* Side-by-side on laptop */
             align-items: center;
             justify-content: center;
-            padding: 0 5%;
-            gap: 20px;
-            width: 100%;
-            height: calc(100vh - 70px); /* Forces section to fill screen height */
+            padding: 40px 10%;
+            gap: 40px;
         }
 
         .hero-text {
-            flex: 1;
-            max-width: 550px;
-            z-index: 2;
+            max-width: 600px;
         }
 
         .hero-text h3 {
-            font-size: clamp(20px, 3vw, 30px);
-            margin-bottom: 5px;
+            font-size: 28px;
+            margin-bottom: 10px;
         }
 
         .hero-text h2 { 
-            font-size: clamp(40px, 6vw, 80px); /* Massive text for big screens */
+            font-size: clamp(40px, 8vw, 75px); /* Scales between mobile and laptop */
             font-weight: bold;
             line-height: 1.1;
             border-bottom: 10px solid white; 
             display: inline-block;
             margin-bottom: 20px;
-            padding-bottom: 10px;
+            padding-bottom: 5px;
         }
 
         .hero-text p {
-            font-size: clamp(18px, 2vw, 26px);
+            font-size: 26px;
             font-weight: bold;
         }
 
-        /* --- IMAGE CONTAINER (BIGGER) --- */
         .hero-image {
-            flex: 1.5; /* Gives image more room than text */
+            max-width: 110vh; /* Controls size on laptop */
+            width: 100%;
             display: flex;
             justify-content: center;
-            align-items: flex-end; /* Sits photo on the footer */
-            height: 100%;
         }
 
         .hero-image img {
-            height: 95vh; /* HUGE on Laptop - 95% of screen height */
-            width: auto;
-            max-width: 100%; 
+            width: 100%;
+            height: auto;
             object-fit: contain;
-            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.9));
-            transition: transform 0.3s ease;
+            filter: drop-shadow(15px 15px 25px rgba(0,0,0,0.6));
         }
 
-        /* --- MOBILE FIX (BIGGER) --- */
+        /* --- MOBILE FIX --- */
         @media (max-width: 900px) {
-            header {
-                flex-direction: column;
-                padding: 15px;
-            }
-
-            nav { margin-top: 10px; }
-            nav a { margin: 0 8px; font-size: 15px; }
-
             .hero {
-                flex-direction: column; 
+                flex-direction: column; /* Stacks vertically on phone */
                 text-align: center;
-                padding: 20px;
-                justify-content: flex-start; /* Start from top */
-                height: auto;
+                padding: 40px 20px;
+                justify-content: center;
             }
 
-            .hero-text { 
-                order: 2; 
-                margin-top: -50px; /* Overlaps image slightly for a cool look */
-                padding-bottom: 40px;
+            .hero-text {
+                padding-bottom: 30px;
             }
 
             .hero-image {
-                order: 1;
-                width: 100%;
-                height: auto;
-                margin-bottom: 20px;
-            }
-
-            .hero-image img {
-                height: 70vh; /* HUGE on Mobile - 70% of screen height */
-                width: auto;
-                max-height: 500px; /* Prevents it from being too tall on long phones */
+                max-width: 100%; /* Keeps the image large but contained on phone */
             }
         }
 
         footer {
-            padding: 15px;
+            padding: 20px;
             border-top: 4px solid white; 
             text-align: center;
             background: maroon; 
             color: white;
             font-weight: bold;
-            position: relative;
-            z-index: 5;
         }
     </style>
 </head>
