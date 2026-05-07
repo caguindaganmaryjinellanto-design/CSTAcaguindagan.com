@@ -12,21 +12,31 @@
             font-family: "Times New Roman", Times, serif; 
         }
         
-        body { 
-            background-color: maroon; 
-            color: white; 
-            min-height: 100vh; 
+        body {
+            /* Using your background image logic */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('gallery.jpg');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: white;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
+            overflow-x: hidden; /* Prevents horizontal scrolling */
         }
-        
-        header { 
-            padding: 20px 60px; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
+
+        header {
+            /* Changed to Maroon */
+            background-color: maroon;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* White border to separate it from the maroon body */
             border-bottom: 4px solid white; 
         }
+
         
         header h1 a {
             text-decoration: none;
