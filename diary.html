@@ -9,13 +9,19 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Times New Roman", Times, serif; }
 
         body {
-            background-color: maroon; 
-            color: white; 
+            /* Using your background image logic */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('diary.jpg');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: white;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            scroll-behavior: smooth;
+            overflow-x: hidden; /* Prevents horizontal scrolling */
         }
+
 
         header {
             background-color: maroon;
