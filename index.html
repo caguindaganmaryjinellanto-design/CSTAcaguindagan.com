@@ -29,13 +29,23 @@
         header {
             /* Changed to Maroon */
             background-color: maroon;
-            padding: 20px 60px;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            /* White border to separate it from the maroon body */
-            border-bottom: 4px solid white; 
-        }
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allows menu to wrap if it's too long */
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+nav a {
+    margin: 5px;
+    font-size: clamp(14px, 4vw, 20px); /* Scales font based on screen width */
+}
 
 
 
