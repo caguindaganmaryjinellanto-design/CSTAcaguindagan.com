@@ -60,61 +60,43 @@
             text-decoration: underline;
         }
 
-        /* Hero Section - The "More Big" Layout */
-        .hero {
-            flex: 1;
-            display: flex;
-            align-items: flex-end; /* Grounds image to the bottom */
-            justify-content: space-between;
-            padding: 0 5% 0 10%; /* Adjusted for a wider image area */
-            position: relative;
-        }
+        /* Replace the .hero and .hero-image styles in index.html */
+.hero {
+    flex: 1;
+    display: flex;
+    flex-direction: row; /* Side by side on laptop */
+    align-items: center;
+    justify-content: center;
+    padding: 20px 5%;
+    gap: 20px;
+}
 
-        .hero-text {
-            padding-bottom: 15vh;
-            max-width: 600px;
-            z-index: 5;
-        }
+.hero-text h2 { 
+    font-size: clamp(32px, 8vw, 75px); /* Responsive font size */
+    border-bottom: 8px solid white;
+}
 
-        .hero-text h3 {
-            font-size: 28px;
-            margin-bottom: 10px;
-        }
+.hero-image {
+    max-width: 500px;
+    width: 100%;
+}
 
-        .hero-text h2 { 
-            font-size: 75px; /* Bigger name */
-            font-weight: bold;
-            line-height: 1.1;
-            border-bottom: 12px solid white; 
-            display: inline-block;
-            margin-bottom: 20px;
-            padding-bottom: 5px;
-        }
+.hero-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
 
-        .hero-text p {
-            font-size: 26px;
-            font-weight: bold;
-        }
-
-        /* Big Image Logic */
-        .hero-image {
-            height: 95vh; /* Massive height */
-            display: flex;
-            align-items: flex-end;
-            justify-content: flex-end;
-        }
-
-        .hero-image img {
-            height: 100%; /* Fills the 95vh container */
-            width: auto;
-            display: block;
-            /* Strong shadow to make it pop against the maroon */
-            filter: drop-shadow(20px 0px 30px rgba(0,0,0,0.6)); 
-            margin-bottom: -4px; 
-            position: relative;
-            z-index: 2;
-        }
-
+/* Mobile Fix */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column; /* Stack vertically on phone */
+        text-align: center;
+    }
+    .hero-text {
+        padding-bottom: 20px;
+    }
+}
         footer {
             padding: 20px;
             border-top: 4px solid white; 
